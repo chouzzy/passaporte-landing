@@ -1,26 +1,22 @@
-import { Flex, HStack, Image, Text, useBreakpointValue, VStack } from "@chakra-ui/react";
+import { Flex, Image, Text, useBreakpointValue, VStack } from "@chakra-ui/react";
 
 
 export function Map() {
-
-    const iframeHeight = useBreakpointValue({ base: '400px', sm: '254px', md: '480px', lg: '480px', xl: '400' })
-    const isMobile = useBreakpointValue({ base: true, sm: true, md: true, lg: false, xl: false })
+    
+   const iframeHeight = useBreakpointValue({ base: '400px', sm: '254px', md: '480px', lg: '480px', xl: '400' })
+   const isMobile = useBreakpointValue({ base: true, sm: true, md: true, lg: false, xl: false })
 
     return (
-        <Flex w='100%' justifyContent={'space-between'} py={[8, 8, 16, 12]} px={[8, 8, 16, 16]} flexDir='column-reverse' >
+        <Flex w='100%' justifyContent={'space-between'} py={[8, 8, 16, 12]} px={[8, 8, 16, 16]} flexDir='column' >
 
-            {isMobile ?
-                ''
+            {isMobile?
+            ''
                 :
-                <Flex alignItems={'center'} justifyContent='center' pt={6} >
-                    <HStack mx='auto' alignItems='center'>
-                        <Image mx='auto' src='static/img/logo branco.png' maxW={10} alt='Logo do Clube do Passaporte' />
-                        <VStack spacing={-2} textTransform='uppercase'>
-                            <Text fontSize='0.8rem' fontWeight='400' mr='auto' color='white' textShadow='1px 1px 1px #00000050'> Clube do</Text>
-                            <Text fontSize='1rem' fontWeight='400' color='clubAqua' textShadow='1px 1px 1px #00000050'> Passaporte</Text>
-                        </VStack>
-                    </HStack>
+            <Flex alignItems={'center'} justifyContent='center' p={8} >
+                <Flex bg='whiteAlpha.900' alignItems={'center'} justifyContent='center' p={8} borderRadius={8}>
+                    <Image src='static/img/logo-square.png' maxW={64} alt='Logo do clube do passaporte' />
                 </Flex>
+            </Flex>
             }
 
 
