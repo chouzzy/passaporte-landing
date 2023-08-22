@@ -8,8 +8,24 @@ import { theme } from '../../styles/theme'
 import { Global } from '@emotion/react'
 import Script from 'next/script'
 
-function MyApp({ Component, pageProps }: AppProps) {
 
+
+const FB_PIXEL_ID = '700239298517091'
+
+function MyApp({Component, pageProps}: AppProps) {
+   const router = useRouter()
+   useEffect(() => {
+      import('react-facebook-pixel')
+        .then((x) => x.default)
+        .then((ReactPixel) => {
+          ReactPixel.init(`${FB_PIXEL_ID}`)
+          ReactPixel.pageView()
+  
+          router.events.on('routeChangeComplete', () => {
+            ReactPixel.pageView()
+          })
+        })
+    }, [router.events])
    return (
       <>
          {/* <!-- Meta Facebook --> */}
