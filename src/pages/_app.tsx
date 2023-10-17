@@ -12,20 +12,20 @@ import Script from 'next/script'
 
 const FB_PIXEL_ID = '700239298517091'
 
-function MyApp({Component, pageProps}: AppProps) {
+function MyApp({ Component, pageProps }: AppProps) {
    const router = useRouter()
    useEffect(() => {
       import('react-facebook-pixel')
-        .then((x) => x.default)
-        .then((ReactPixel) => {
-          ReactPixel.init(`${FB_PIXEL_ID}`)
-          ReactPixel.pageView()
-  
-          router.events.on('routeChangeComplete', () => {
+         .then((x) => x.default)
+         .then((ReactPixel) => {
+            ReactPixel.init(`${FB_PIXEL_ID}`)
             ReactPixel.pageView()
-          })
-        })
-    }, [router.events])
+
+            router.events.on('routeChangeComplete', () => {
+               ReactPixel.pageView()
+            })
+         })
+   }, [router.events])
    return (
       <>
          {/* <!-- Meta Facebook --> */}
@@ -37,23 +37,26 @@ function MyApp({Component, pageProps}: AppProps) {
             'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
             })(window,document,'script','dataLayer','GTM-TGLDLST');
          */}
-         <Script id="google-tag-manager" strategy="afterInteractive" dangerouslySetInnerHTML={{ __html:
-            `
-            (function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
-            new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
-            j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
-            'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
-            })(window,document,'script','dataLayer','GTM-TGLDLST');
-            `}}>
-         </Script>
-         {/* <!-- End Google Tag Manager --> */}
+         <Script async src="https://www.googletagmanager.com/gtag/js?id=G-V5XTNB47ME"></Script>
 
-         <ChakraProvider theme={theme}>
-            <Global
-               styles={`...`}
-            />
-            <Component {...pageProps} />
-         </ChakraProvider>
+         <Script id="google-tag-manager" strategy="afterInteractive"  dangerouslySetInnerHTML={{
+            __html:`           
+            window.dataLayer = window.dataLayer || [];
+            function gtag(){dataLayer.push(arguments);}
+            gtag('js', new Date());
+
+            gtag('config', 'G-V5XTNB47ME');`
+         }}>
+         </Script>
+
+         {/* <!-- End Google Tag Manager --> */ }
+
+   <ChakraProvider theme={theme}>
+      <Global
+         styles={`...`}
+      />
+      <Component {...pageProps} />
+   </ChakraProvider>
       </>
    )
 }
