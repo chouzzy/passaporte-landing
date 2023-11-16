@@ -93,7 +93,7 @@ export function Navbar({ serviceOn, backPage }: NavbarProps) {
       { id: "instagram", instagram: 'https://www.instagram.com/clubedopassaporte/' },
       { id: "facebook", facebook: 'https://www.facebook.com/teste' },
       { id: "linkedin", linkedin: 'https://www.linkedin.com/company/teste/' },
-      { id: "whatsapp", whatsapp: `https://wa.me/${whatsNumber}?text=Olá, tudo bem? Acessei o site do Clube do Passaporte e gostaria de receber o e-book que detalha sobre a vida em Portugal!` },
+      { id: "whatsapp", whatsapp: `https://wa.me/${whatsNumber}?text=Olá, tudo bem? Acessei o site do Clube do Passaporte e gostaria de mais informações!` },
    ]
 
    const services = [

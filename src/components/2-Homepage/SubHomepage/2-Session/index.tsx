@@ -67,7 +67,7 @@ export function OportunitiySession() {
                textAlign={['justify','center','center']}
             >
                {firstSessionData.subtitle}
-               {callToAction}
+               {/* {callToAction} */}
 
             </Flex>
 

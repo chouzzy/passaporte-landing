@@ -34,16 +34,6 @@ export default function Contact() {
           Ficamos felizes pelo seu interesse!
         </Heading>
 
-        <Link
-          href={`https://drive.google.com/u/1/uc?id=12uGuaKzvIarEhreOaGC-Zkc8a7uFyJHn&export=download`}
-          target='_blank'
-          _hover={{ textDecoration: 'none' }}
-        >
-          <Button bg={'clubMaldivas'} color='gray.50' fontWeight={'400'} textAlign='center' >
-            Clique aqui para solicitar o seu E-book!
-          </Button>
-        </Link>
-
       </Flex>
     </Container>
   )
