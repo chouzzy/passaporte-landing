@@ -7,6 +7,7 @@ import { GiCommercialAirplane } from "react-icons/gi";
 import { Map } from "./map";
 import { checkBoxList, formData, title } from "./footerData";
 import { useRouter } from "next/router";
+import axios from "axios";
 
 export function Footer() {
 
@@ -36,11 +37,18 @@ export function Footer() {
 
    const router = useRouter()
 
-   function onSubmit(values) {
+   async function onSubmit(values) {
       setDisable(true)
       setColor('clubCigar')
       setSentText('Enviado ✔')
       const emailData = { ...values, checkedItems }
+
+      await axios.post("https://connect.pabbly.com/workflow/sendwebhookdata/IjU3NjUwNTZlMDYzMzA0MzQ1MjZkNTUzMjUxMzMi_pc", JSON.stringify(emailData))
+      .then((res) => {
+      })
+      .catch((err) => {
+        console.log(err);
+      });
 
       return new Promise(() => {
          setTimeout(() => {
