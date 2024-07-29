@@ -1,7 +1,7 @@
 import { Button, Center, Checkbox, CheckboxGroup, Divider, Flex, FormControl, FormLabel, Heading, Input, InputGroup, InputLeftElement, InputRightElement, Link, Select, Text, Textarea, VStack } from "@chakra-ui/react";
 import { useEffect, useState } from "react";
 import { useForm } from "react-hook-form";
-import { BsTelephoneFill } from "react-icons/bs";
+import { BsTelephoneFill, BsWhatsapp } from "react-icons/bs";
 import { IoIosMail } from "react-icons/io";
 import { GiCommercialAirplane } from "react-icons/gi";
 import { Map } from "./map";
@@ -135,10 +135,13 @@ export function Footer() {
                         htmlFor='telephone'
                      >
                         <Flex gap={2} alignItems='baseline' flexDir={'row'} display={'inline-block'}>
-                           <Flex gap={1} alignItems='baseline'>
+                           <Flex gap={2} alignItems='baseline'>
 
                            {formData.number}
-                           <WhatsappLogo color="#25d366" size={20} />
+                           <Flex borderRadius={'100%'} bg='#25d366' p={1.5}>
+
+                           <BsWhatsapp size={12}/>
+                           </Flex>
                            </Flex>
                         </Flex>
                      </FormLabel>
