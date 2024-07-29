@@ -3,7 +3,7 @@ const title = 'Descubra seu visto ideal, e ainda receba "O Guia para brasileiros
 const formData = {
     title: 'FALE COM O CLUBE DO PASSAPORTE',
     name: 'Nome',
-    number: 'Telefone',
+    number: 'WhatsApp',
     email: 'E-mail',
     movingDate: 'Quando você pretende mudar para Portugal?',
     movingReason: 'Descreva de forma sucinta o motivo pelo qual você quer imigrar para Portugal e o porquê você selecionou a opção acima.',

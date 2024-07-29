@@ -14,7 +14,8 @@ export const theme = extendTheme({
      clubMoss:"#356561",
      clubCigar:"#637776",
      clubMaldivas:"#4ca7a1",
-     clubDarkBlue:'#0f1d27'
+     clubDarkBlue:'#0f1d27',
+     whatsapp:'#25d366',
    },
    styles: {
      global: {

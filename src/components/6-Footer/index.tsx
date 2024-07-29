@@ -8,6 +8,7 @@ import { Map } from "./map";
 import { checkBoxList, formData, title } from "./footerData";
 import { useRouter } from "next/router";
 import axios from "axios";
+import { WhatsappLogo } from "phosphor-react";
 
 export function Footer() {
 
@@ -44,11 +45,11 @@ export function Footer() {
       const emailData = { ...values, checkedItems }
 
       await axios.post("https://connect.pabbly.com/workflow/sendwebhookdata/IjU3NjUwNTZlMDYzMzA0MzQ1MjZkNTUzMjUxMzMi_pc", JSON.stringify(emailData))
-      .then((res) => {
-      })
-      .catch((err) => {
-        console.log(err);
-      });
+         .then((res) => {
+         })
+         .catch((err) => {
+            console.log(err);
+         });
 
       return new Promise(() => {
          setTimeout(() => {
@@ -60,9 +61,9 @@ export function Footer() {
 
          if (typeof window !== "undefined") {
             router.push({
-                pathname: "obrigado-whatsapp",
+               pathname: "obrigado-whatsapp",
             })
-        }
+         }
       })
    }
 
@@ -94,7 +95,7 @@ export function Footer() {
             {/* MAPA */}
             <Map />
             {/* FORM */}
-            <Center my='auto' height={[0,0,0 , 600]}>
+            <Center my='auto' height={[0, 0, 0, 600]}>
                <Divider orientation='vertical' />
             </Center>
             <Flex
@@ -133,11 +134,17 @@ export function Footer() {
                         mb={1}
                         htmlFor='telephone'
                      >
-                        {formData.number}
+                        <Flex gap={2} alignItems='baseline' flexDir={'row'} display={'inline-block'}>
+                           <Flex gap={1} alignItems='baseline'>
+
+                           {formData.number}
+                           <WhatsappLogo color="#25d366" size={20} />
+                           </Flex>
+                        </Flex>
                      </FormLabel>
 
                      <InputGroup gap={1}>
-
+         
                         {/* SELECT DDD ou DDI */}
                         <Select
                            isRequired
@@ -222,7 +229,7 @@ export function Footer() {
                            _placeholder={{ color: 'black' }}
                            placeholder='Escolha o período aproximado'
                            {...register("MovingDate")}
-                           >
+                        >
                            <option style={{ color: 'black' }}>Próximos 3 meses</option>
                            <option style={{ color: 'black' }}>Próximos 6 meses</option>
                            <option style={{ color: 'black' }}>Próximo 1 ano </option>
